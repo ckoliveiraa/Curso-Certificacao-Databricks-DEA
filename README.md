@@ -16,6 +16,7 @@ A certificação valida a capacidade de utilizar a **Databricks Data Intelligenc
 
 | Pasta | Tópico | Descrição |
 |-------|--------|-----------|
+| `00` | **Guia de Estudo** | Trilha de estudo e mapa domínio x aula (comece aqui) |
 | `01` | Introdução ao Curso | Boas vindas e introdução |
 | `02` | Criando Conta Free na Azure |Criando conta Azure com bonus de $200 |
 | `03` | Componentes Databricks | Arquitectura, clusters, workspaces |
@@ -29,6 +30,8 @@ A certificação valida a capacidade de utilizar a **Databricks Data Intelligenc
 | `11` | Governança de Dados | Permissões, GRANT/REVOKE, security |
 | `12` | Simulado Certificação | Simulado de Perguntas Certificação |
 | `13` | Condideração Final| Encerramento do treinamento |
+| `Resumos/` | Resumos por domínio | Um resumo por domínio do exame, incluindo o que o curso não cobre |
+| `Questoes/` | Questões de prática | Questões inéditas no estilo da prova, com gabarito comentado |
 ---
 
 ## 🎓 Sobre o Exame
@@ -49,23 +52,30 @@ A certificação valida a capacidade de utilizar a **Databricks Data Intelligenc
 
 ---
 
-## 📊 Distribuição de Tópicos no Exame
+## 📊 Distribuição de Tópicos no Exame (versão de 04/05/2026, guia de ago/2026)
 
 | Domínio | Peso |
 |---------|------|
-| Databricks Intelligence Platform | 10% |
-| Development and Ingestion | 30% |
-| Data Processing & Transformations | 31% |
-| Productionizing Data Pipelines | 18% |
-| Data Governance & Quality | 11% |
+| 1. Databricks Intelligence Platform | 6% |
+| 2. Data Ingestion and Loading | 21% |
+| 3. Data Transformation and Modeling | 22% |
+| 4. Working with Lakeflow Jobs | 16% |
+| 5. Implementing CI/CD | 10% |
+| 6. Troubleshooting, Monitoring, and Optimization | 10% |
+| 7. Governance and Security | 15% |
 
 ```
-Data Processing & Transformations  ████████████████████████████████  31%
-Development and Ingestion          ██████████████████████████████    30%
-Productionizing Data Pipelines     ██████████████████                18%
-Data Governance & Quality          ███████████                       11%
-Databricks Intelligence Platform   ██████████                        10%
+Data Transformation and Modeling       ██████████████████████  22%
+Data Ingestion and Loading             █████████████████████   21%
+Working with Lakeflow Jobs             ████████████████        16%
+Governance and Security                ███████████████         15%
+Implementing CI/CD                     ██████████              10%
+Troubleshooting, Monitoring, Optim.    ██████████              10%
+Databricks Intelligence Platform       ██████                   6%
 ```
+
+> O exame tem 45 questões pontuadas e pode ter até 10 não pontuadas, em 90 minutos.
+> Veja em [`00 - Guia de Estudo/01 - Mapa Dominios x Aulas.md`](00%20-%20Guia%20de%20Estudo/01%20-%20Mapa%20Dominios%20x%20Aulas.md) o que o curso cobre em cada domínio.
 
 ---
 
@@ -90,7 +100,7 @@ Cada pasta contém:
 
 ## 📝 Passos para Preparação (Recomendado pela Databricks)
 
-1. ✅ Revisar o [Exam Guide oficial](https://www.databricks.com/sites/default/files/2026-01/databricks-certified-data-engineer-associate-exam-guide-nov-30-2025-000.pdf)
+1. ✅ Revisar o [Exam Guide oficial](https://www.databricks.com/sites/default/files/2026-10/Databricks-Certified-Data-Engineer-Associate-Exam-Guide-August-2026.pdf)
 2. ✅ Completar treino relacionado
 3. ✅ Registar para o exame
 4. ✅ Verificar [requisitos técnicos](https://kryterion.my.site.com/support/s/article/Online-Testing-Requirements?language=en_US) para exame online
@@ -104,39 +114,48 @@ Cada pasta contém:
 
 ## ✅ Checklist de Preparação
 
-### Databricks Intelligence Platform (10%)
-- [ ] Compreender arquitectura do workspace
-- [ ] Diferenciar clusters All-Purpose vs Job Clusters
-- [ ] Conhecer SQL Warehouses e seus tipos
+O checklist detalhado, semana a semana, está em [`00 - Guia de Estudo/02 - Trilha de Estudo.md`](00%20-%20Guia%20de%20Estudo/02%20-%20Trilha%20de%20Estudo.md).
 
-### Development and Ingestion (30%)
-- [ ] Dominar leitura de múltiplos formatos (JSON, CSV, Parquet)
-- [ ] Entender Auto Loader e ingestão incremental
-- [ ] Trabalhar com dados complexos (arrays, structs, JSON)
+### 1. Databricks Intelligence Platform (6%)
+- [ ] Componentes: arquitetura, Delta Lake, Unity Catalog
+- [ ] Escolher o compute certo (serverless, classic, job cluster, SQL warehouse) e seus custos
 
-### Data Processing & Transformations (31%)
-- [ ] Dominar Spark SQL e PySpark transformations
-- [ ] Implementar UDFs (SQL e Python)
-- [ ] Operações Delta Lake (MERGE, UPDATE, DELETE)
-- [ ] Higher-order functions e manipulação de nested data
+### 2. Data Ingestion and Loading (21%)
+- [ ] COPY INTO e Auto Loader (schema evolution, directory listing x file notification)
+- [ ] Lakeflow Connect (conectores standard e managed), JDBC/REST
+- [ ] Dados semi-estruturados (JSON, nested, arrays)
 
-### Productionizing Data Pipelines (18%)
-- [ ] Configurar e agendar Jobs
-- [ ] Entender Delta Live Tables e expectations
-- [ ] Structured Streaming (triggers, checkpoints)
-- [ ] Task orchestration e dependencies
+### 3. Data Transformation and Modeling (22%)
+- [ ] Limpeza Bronze → Silver, joins (broadcast, cross, union), deduplicação, agregações
+- [ ] Parâmetros de tuning do Spark
+- [ ] Objetos Gold: views, materialized views, streaming tables; data quality
 
-### Data Governance & Quality (11%)
-- [ ] Unity Catalog e hierarquia de objectos
-- [ ] Permissões (GRANT, REVOKE, USAGE)
-- [ ] Data quality com expectations
+### 4. Working with Lakeflow Jobs (16%)
+- [ ] Tasks e dependências no DAG, retries, If/else, For each
+- [ ] Triggers: scheduled, file arrival, table update
+
+### 5. Implementing CI/CD (10%)
+- [ ] Git folders: branch, commit, push, pull request
+- [ ] Declarative Automation Bundles (ex-DABs): variáveis, targets, deploy
+- [ ] Databricks CLI: `bundle validate / deploy / run`
+
+### 6. Troubleshooting, Monitoring, and Optimization (10%)
+- [ ] Run history, matrix view, repair run
+- [ ] Spark UI: skew, shuffle, spill
+- [ ] Liquid Clustering e Predictive Optimization
+- [ ] Falhas de cluster, conflitos de bibliotecas, OOM
+
+### 7. Governance and Security (15%)
+- [ ] Managed x External (incluindo conversão)
+- [ ] GRANT / REVOKE / DENY para usuários, grupos e service principals
+- [ ] Row filters, column masks e ABAC
 
 ---
 
 ## 📚 Recursos Oficiais
 
 - [Página da Certificação](https://www.databricks.com/learn/certification/data-engineer-associate)
-- [Exam Guide (PDF)](https://www.databricks.com/sites/default/files/2026-01/databricks-certified-data-engineer-associate-exam-guide-nov-30-2025-000.pdf)
+- [Exam Guide (PDF)](https://www.databricks.com/sites/default/files/2026-10/Databricks-Certified-Data-Engineer-Associate-Exam-Guide-August-2026.pdf)
 - [Registo para Exame](http://webassessor.com/databricks)
 - [Databricks Academy](https://www.databricks.com/learn/training/login)
 - [Documentação Azure Databricks](https://learn.microsoft.com/pt-pt/azure/databricks/)
